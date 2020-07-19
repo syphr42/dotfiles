@@ -1,0 +1,44 @@
+#!/bin/bash
+# ~/.bash_custom: automatically executed by ~/.bashrc
+
+# Set editor
+NANO_PATH=$(command -v nano)
+if [ -n "${NANO_PATH}" ]; then
+    export EDITOR=${NANO_PATH}
+    export KUBE_EDITOR=${NANO_PATH}
+fi
+
+# XDG setup
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CACHE_HOME="${HOME}/.cache"
+if [ ! -w ${XDG_RUNTIME_DIR:="/run/user/${UID}"} ]; then
+    echo "\${XDG_RUNTIME_DIR} (${XDG_RUNTIME_DIR}) not writable. Setting to /tmp." >&2
+    XDG_RUNTIME_DIR=/tmp
+fi
+export XDG_RUNTIME_DIR
+
+# npm setup
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+PATH="${PATH}:${XDG_DATA_HOME}/npm/bin"
+
+# Go setup
+if [ -d "${HOME}/go/bin" ]; then
+    PATH="${PATH}:${HOME}/go/bin"
+fi
+
+# Docker setup
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+if [ -d "${HOME}/workspaces/swarm/bin" ]; then
+    PATH="${PATH}:${HOME}/workspaces/swarm/bin"
+fi
+
+# OpenSSL setup
+mkdir -p "${XDG_CONFIG_HOME}/openssl"
+export RANDFILE="${XDG_CONFIG_HOME}/openssl/rnd"
+
+# Add Git branch to prompt
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
