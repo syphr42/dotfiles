@@ -1,0 +1,30 @@
+{
+    "editor.multiCursorModifier": "alt",
+
+    "explorer.confirmDragAndDrop": false,
+
+    "files.associations": {
+        "Dockerfile*": "dockerfile"
+    },
+    "files.enableTrash": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "openhab.host": "skynet.syphr.net",
+    "openhab.itemCasing": "snake",
+    "openhab.port": 80,
+
+    "shellcheck.enableQuickFix": true,
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+
+    "window.autoDetectColorScheme": true,
+
+    "workbench.startupEditor": "newUntitledFile",
+
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}
