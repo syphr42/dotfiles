@@ -27,4 +27,5 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "editor.columnSelection": false,
 }
