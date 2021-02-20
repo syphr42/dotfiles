@@ -18,6 +18,12 @@ if [ ! -w ${XDG_RUNTIME_DIR:="/run/user/${UID}"} ]; then
 fi
 export XDG_RUNTIME_DIR
 
+# Expand $PATH to include user bin directory
+user_bin_path="${HOME}/bin"
+if [ -n "${PATH##*${user_bin_path}}" ] && [ -n "${PATH##*${user_bin_path}:*}" ]; then
+    export PATH=$PATH:${user_bin_path}
+fi
+
 # npm setup
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 PATH="${PATH}:${XDG_DATA_HOME}/npm/bin"
