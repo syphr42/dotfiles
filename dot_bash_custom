@@ -44,8 +44,17 @@ fi
 mkdir -p "${XDG_CONFIG_HOME}/openssl"
 export RANDFILE="${XDG_CONFIG_HOME}/openssl/rnd"
 
-# Add Git branch to prompt
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# Git setup
+prompt_git() {
+    git_branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [ -n "${git_branch}" ]; then echo -e "(g:${git_branch}) "; fi
 }
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+PS1+='\[\033[33m\]$(prompt_git)\[\033[00m\]'
+
+# Kubernetes setup
+source <(kubectl completion bash)
+prompt_k8s() {
+    k8s_ns=$(kns 2> /dev/null)
+    if [ -n "${k8s_ns}" ]; then echo -e "(k:${k8s_ns}) "; fi
+}
+PS1+='\[\033[32m\]$(prompt_k8s)\[\033[00m\]'

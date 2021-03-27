@@ -1,0 +1,18 @@
+#!/bin/bash
+# ~/.bash_aliases: automatically executed by ~/.bashrc
+
+# Kubernetes
+
+## kubectl
+alias k=kubectl
+complete -F __start_kubectl k
+
+## get/set namespace
+k_ns() {
+  if [ -z "${1}" ]; then
+    kubectl config view --minify --output 'jsonpath={..namespace}'; echo
+  else
+    kubectl config set-context --current --namespace="${1}"
+  fi
+}
+alias kns=k_ns
