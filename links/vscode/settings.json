@@ -28,4 +28,5 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "editor.columnSelection": false,
+    "docker.showStartPage": false,
 }
