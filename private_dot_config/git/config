@@ -34,3 +34,5 @@
 	tool = meld
 [mergetool]
 	keepBackup = false
+[pull]
+	ff = only
