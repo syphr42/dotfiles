@@ -11,9 +11,10 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
 
-    "openhab.host": "skynet.syphr.net",
+    "openhab.connection.host": "openhab.syphr.net",
+    "openhab.connection.port": 443,
     "openhab.itemCasing": "snake",
-    "openhab.port": 80,
+    "openhab.languageserver.remotePort": 32000,
 
     "shellcheck.enableQuickFix": true,
     "shellcheck.customArgs": [
@@ -29,4 +30,5 @@
     },
     "editor.columnSelection": false,
     "docker.showStartPage": false,
+    "redhat.telemetry.enabled": false,
 }
