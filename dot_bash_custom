@@ -19,7 +19,7 @@ fi
 export XDG_RUNTIME_DIR
 
 # Expand $PATH to include user bin directory
-user_bin_path="${HOME}/bin"
+user_bin_path="${HOME}/.local/bin"
 if [ -n "${PATH##*${user_bin_path}}" ] && [ -n "${PATH##*${user_bin_path}:*}" ]; then
     export PATH=$PATH:${user_bin_path}
 fi
