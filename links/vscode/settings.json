@@ -31,4 +31,8 @@
     "editor.columnSelection": false,
     "docker.showStartPage": false,
     "redhat.telemetry.enabled": false,
+
+    "vs-kubernetes": {
+        "vs-kubernetes.enable-snap-flag": true
+    }
 }
