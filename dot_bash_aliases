@@ -16,3 +16,38 @@ k_ns() {
   fi
 }
 alias kns=k_ns
+
+# Podman
+prun() {
+  local podman_image=${1}
+  shift
+
+  declare podman_args=()
+  while [ -n "${1}" ] && [ "${1}" != "--" ]; do
+    podman_args+=("${1}")
+    shift
+  done
+
+  if [ "${1}" = "--" ]; then
+    shift
+  fi
+
+  podman run --rm -it \
+    --volume "$(pwd):/workspace" \
+    --workdir /workspace \
+    "${podman_args[@]}" \
+    "${podman_image}" \
+    "$@"
+}
+
+# Maven
+maven() {
+  local maven_jdk_version=${1}
+  shift
+
+  prun "docker.io/library/maven:3-eclipse-temurin-${maven_jdk_version}" --volume ~/.m2:/root/.m2 -- mvn "$@"
+}
+
+alias mvn8='maven 8'
+alias mvn11='maven 11'
+alias mvn17='maven 17'
