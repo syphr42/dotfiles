@@ -28,11 +28,25 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "editor.columnSelection": false,
     "docker.showStartPage": false,
     "redhat.telemetry.enabled": false,
 
     "vs-kubernetes": {
         "vs-kubernetes.enable-snap-flag": true
-    }
+    },
+
+    "ruby.lint": {
+        "rubocop": true
+    },
+    "ruby.useLanguageServer": true,
+    "solargraph.formatting": true,
+    "[ruby]": {
+        "editor.defaultFormatter": "castwide.solargraph"
+    },
+    "remote.containers.dockerPath": "podman",
+    "remote.SSH.defaultExtensions": [
+        "gitpod.gitpod-remote-ssh"
+    ],
+    "remote.SSH.configFile": "/tmp/gitpod_ssh_config-62413-jXwUbb7FYIA7",
+    "docker.dockerPath": "podman"
 }
