@@ -33,13 +33,6 @@ if [ -d "${HOME}/go/bin" ]; then
     PATH="${PATH}:${HOME}/go/bin"
 fi
 
-# Docker setup
-export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
-export DOCKER_CLI_EXPERIMENTAL=enabled
-if [ -d "${HOME}/workspaces/swarm/bin" ]; then
-    PATH="${PATH}:${HOME}/workspaces/swarm/bin"
-fi
-
 # OpenSSL setup
 mkdir -p "${XDG_CONFIG_HOME}/openssl"
 export RANDFILE="${XDG_CONFIG_HOME}/openssl/rnd"
