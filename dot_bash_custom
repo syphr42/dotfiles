@@ -51,3 +51,8 @@ prompt_k8s() {
     if [ -n "${k8s_ns}" ]; then echo -e "(k:${k8s_ns}) "; fi
 }
 PS1+='\[\033[32m\]$(prompt_k8s)\[\033[00m\]'
+
+# Ruby setup
+if [ -d "${XDG_DATA_HOME}/gem/ruby/2.7.0/bin" ]; then
+    PATH="${PATH}:${XDG_DATA_HOME}/gem/ruby/2.7.0/bin"
+fi
