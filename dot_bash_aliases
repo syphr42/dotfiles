@@ -51,3 +51,6 @@ maven() {
 alias mvn8='maven 8'
 alias mvn11='maven 11'
 alias mvn17='maven 17'
+
+# Bat
+alias cat='batcat'
