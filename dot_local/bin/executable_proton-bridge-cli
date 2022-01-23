@@ -11,4 +11,4 @@ podman run --rm -it \
     --volume "${BRIDGE_CACHE}":/root/.cache/protonmail/bridge \
     --volume "${BRIDGE_KEY_CACHE}":/root/.password-store \
     --env BRIDGE_GPG_KEY="$(cat "${BRIDGE_CONFIG}/key.asc")" \
-    syphr42/proton-bridge --cli
+    syphr/proton-bridge --cli
