@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+BRIDGE_CONFIG=${XDG_CONFIG_HOME}/protonmail/bridge
+BRIDGE_KEY_CACHE=${XDG_CACHE_HOME}/protonmail/password-store
+BRIDGE_CACHE=${XDG_CACHE_HOME}/protonmail/bridge
+
+mkdir -p "${BRIDGE_CONFIG}" "${BRIDGE_KEY_CACHE}" "${BRIDGE_CACHE}"
+
+podman run --rm -it \
+    --volume "${BRIDGE_CONFIG}":/root/.config/protonmail/bridge \
+    --volume "${BRIDGE_CACHE}":/root/.cache/protonmail/bridge \
+    --volume "${BRIDGE_KEY_CACHE}":/root/.password-store \
+    --env BRIDGE_GPG_KEY="$(cat "${BRIDGE_CONFIG}/key.asc")" \
+    syphr42/proton-bridge --cli
