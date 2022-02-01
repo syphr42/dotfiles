@@ -33,24 +33,65 @@ prun() {
   fi
 
   podman run --rm -it \
-    --volume "$(pwd):/workspace" \
-    --workdir /workspace \
     "${podman_args[@]}" \
     "${podman_image}" \
     "$@"
 }
+
+prun_workspace() {
+  local podman_image=${1}
+  shift
+
+  prun "${podman_image}" --volume "$(pwd):/workspace" --workdir /workspace "$@"
+}
+
+export -f prun
+export -f prun_workspace
+
+# Java
+jdk() {
+  local java_version=${1}
+  shift
+
+  prun "docker.io/library/eclipse-temurin:${java_version}" "$@"
+}
+
+j17() {
+  jdk 17 "$@"
+}
+
+j() {
+  j17 "$@"
+}
+
+export -f j17
+export -f j
 
 # Maven
 maven() {
   local maven_jdk_version=${1}
   shift
 
-  prun "docker.io/library/maven:3-eclipse-temurin-${maven_jdk_version}" --volume ~/.m2:/root/.m2 -- mvn "$@"
+  prun_workspace "docker.io/library/maven:3-eclipse-temurin-${maven_jdk_version}" --volume ~/.m2:/root/.m2 -- mvn "$@"
 }
 
-alias mvn8='maven 8'
-alias mvn11='maven 11'
-alias mvn17='maven 17'
+mvn8() {
+  maven 8 "$@"
+}
+mvn11() {
+  maven 11 "$@"
+}
+mvn17() {
+  maven 17 "$@"
+}
+mvn() {
+  mvn17 "$@"
+}
+
+export -f mvn8
+export -f mvn11
+export -f mvn17
+export -f mvn
 
 # Bat
 alias cat='batcat'
