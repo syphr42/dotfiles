@@ -1,7 +1,9 @@
 [user]
 	name = Gregory Moyer
-	email = moyerg@syphr.com
-	signingkey = 69385825245C6036
+	email = greg@commitpush.run
+	signingkey = 1A60C2BE4E6EED0D
+	#email = moyerg@syphr.com
+	#signingkey = 69385825245C6036
 [diff "ods"]
 	textconv = odf2prettyxml
 [diff "odf"]
