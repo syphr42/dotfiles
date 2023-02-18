@@ -48,6 +48,8 @@ prun_workspace() {
 export -f prun
 export -f prun_workspace
 
+alias p=podman
+
 # Java
 jdk() {
   local java_version=${1}
