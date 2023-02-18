@@ -56,3 +56,8 @@ PS1+='\[\033[32m\]$(prompt_k8s)\[\033[00m\]'
 if [ -d "${XDG_DATA_HOME}/gem/ruby/2.7.0/bin" ]; then
     PATH="${PATH}:${XDG_DATA_HOME}/gem/ruby/2.7.0/bin"
 fi
+
+# PIP
+# Disable annoying KDE Wallet popup when using pip3
+# https://stackoverflow.com/questions/64570510/why-does-pip3-want-to-create-a-kdewallet-after-installing-updating-packages-on-u
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
