@@ -48,5 +48,8 @@
         "gitpod.gitpod-remote-ssh"
     ],
     "remote.SSH.configFile": "/tmp/gitpod_ssh_config-62413-jXwUbb7FYIA7",
-    "docker.dockerPath": "podman"
+    "docker.dockerPath": "podman",
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }
