@@ -21,29 +21,17 @@
         "-x"
     ],
 
-    "window.autoDetectColorScheme": true,
-
     "workbench.startupEditor": "newUntitledFile",
 
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "docker.showStartPage": false,
     "redhat.telemetry.enabled": false,
 
     "vs-kubernetes": {
         "vs-kubernetes.enable-snap-flag": true
     },
-
-    "ruby.lint": {
-        "rubocop": true
-    },
-    "ruby.useLanguageServer": true,
-    "solargraph.formatting": true,
-    "[ruby]": {
-        "editor.defaultFormatter": "castwide.solargraph"
-    },
-    "remote.containers.dockerPath": "podman",
+    "dev.containers.dockerPath": "podman",
     "remote.SSH.defaultExtensions": [
         "gitpod.gitpod-remote-ssh"
     ],
@@ -51,5 +39,10 @@
     "docker.dockerPath": "podman",
     "[python]": {
         "editor.formatOnType": true
-    }
+    },
+
+    "terminal.integrated.allowChords": false,
+    "ansible.python.interpreterPath": "/usr/bin/python3",
+    "window.autoDetectColorScheme": true,
+    "editor.renderWhitespace": "all"
 }
