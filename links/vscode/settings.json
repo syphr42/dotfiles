@@ -1,5 +1,6 @@
 {
     "editor.multiCursorModifier": "alt",
+    "editor.rulers": [100],
 
     "explorer.confirmDragAndDrop": false,
 
@@ -38,11 +39,22 @@
     "remote.SSH.configFile": "/tmp/gitpod_ssh_config-62413-jXwUbb7FYIA7",
     "docker.dockerPath": "podman",
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
 
     "terminal.integrated.allowChords": false,
     "ansible.python.interpreterPath": "/usr/bin/python3",
     "window.autoDetectColorScheme": true,
-    "editor.renderWhitespace": "all"
+    "editor.renderWhitespace": "all",
+    "cSpell.userWords": [
+        "gameplay"
+    ],
+    "containers.containerCommand": "podman",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
