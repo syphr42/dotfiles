@@ -86,13 +86,25 @@ mvn11() {
 mvn17() {
   maven 17 "$@"
 }
+mvn21() {
+  maven 21 "$@"
+}
+mvn24() {
+  maven 24 "$@"
+}
+mvn25() {
+  maven 25 "$@"
+}
 mvn() {
-  mvn17 "$@"
+  mvn24 "$@"
 }
 
 export -f mvn8
 export -f mvn11
 export -f mvn17
+export -f mvn21
+export -f mvn24
+export -f mvn25
 export -f mvn
 
 # Bat
