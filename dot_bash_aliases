@@ -109,8 +109,11 @@ mvn() {
 mvnn24() {
   maven_native 24 "$@"
 }
+mvnn25() {
+  maven_native 25 "$@"
+}
 mvnn() {
-  mvnn24 "$@"
+  mvnn25 "$@"
 }
 
 export -f mvn8
