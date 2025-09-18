@@ -77,6 +77,13 @@ maven() {
   prun_workspace "docker.io/library/maven:3-eclipse-temurin-${maven_jdk_version}" --volume ~/.m2:/root/.m2 -- mvn "$@"
 }
 
+maven_native() {
+  local maven_jdk_version=${1}
+  shift
+
+  prun_workspace "graalvm:${maven_jdk_version}" --volume ~/.m2:/root/.m2 -- mvn "$@"
+}
+
 mvn8() {
   maven 8 "$@"
 }
@@ -99,6 +106,13 @@ mvn() {
   mvn24 "$@"
 }
 
+mvnn24() {
+  maven_native 24 "$@"
+}
+mvnn() {
+  mvnn24 "$@"
+}
+
 export -f mvn8
 export -f mvn11
 export -f mvn17
@@ -106,6 +120,8 @@ export -f mvn21
 export -f mvn24
 export -f mvn25
 export -f mvn
+export -f mvnn24
+export -f mvnn
 
 # Bat
 alias cat='batcat'
