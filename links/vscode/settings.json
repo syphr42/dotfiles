@@ -1,5 +1,6 @@
 {
     "editor.multiCursorModifier": "alt",
+    "editor.rulers": [71,80,120],
 
     "explorer.confirmDragAndDrop": false,
 
